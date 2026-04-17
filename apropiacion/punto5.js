@@ -22,7 +22,7 @@ function actualizarPerfil(perfil, ...nuevosDatos) {
 
 const perfil = {
     nombre: "Juan",
-    edad: 20,
+    edad:  20,
     ciudad: "Bogotá"
 };
 
