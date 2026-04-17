@@ -5,7 +5,7 @@ function analizarVentas(ventas) {
   console.log(`Producto: ${producto}, Total vendido: ${total}`);
 }
 
-// 👇 EJECUCIÓN
+//  EJECUCIÓN
 analizarVentas([
   { producto: "teclado", detalles: { precio: 50, unidades: 3 } },
   { producto: "mouse", detalles: { precio: 20, unidades: 5 } }
