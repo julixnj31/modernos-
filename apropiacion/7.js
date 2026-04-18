@@ -25,6 +25,6 @@ function evaluar(...valores) {
 }
 
 // Pruebas
-evaluar(8, 9, 7, 10, 6);       // válido → promedio: 8.00
-evaluar(5, "diez", 3);          // error  → valor no numérico
-evaluar(4.5, 3.8, 4.0, 4.2);   // válido → promedio: 4.13
+evaluar(8, 6, 9, 10, 4);       // válido → promedio: 8.00
+evaluar(5, "ocho", 3);          // error  → valor no numérico
+evaluar(4.5, 3.7, 4.0, 4.2);   // válido → promedio: 4.13
