@@ -6,8 +6,8 @@ Este documento establece las reglas de convivencia, comunicación y estándares 
 | Nombre | Rol | Usuario de GitHub |
 | :--- | :--- | :--- |
 | Julian Jaimes Estupiñan] | Líder (Arquitecto) | `@julixnj31` |
-| [Selena Molina Figueroa] | Desarrollador | `` |
-| [Yoinel Duvan Martinez Plata ] | Desarrollador | `` |
+| [Selena Molina Figueroa] | Desarrollador | `` | `@se-26`
+| [Yoinel Duvan Martinez Plata ] | Desarrollador | `@Yoinelmatinez` |
 
 ## 2. Canales de Comunicación
 Para mantener el orden y separar lo profesional de lo personal, usaremos los siguientes canales:
