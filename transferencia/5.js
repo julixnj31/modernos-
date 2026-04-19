@@ -1,23 +1,26 @@
-export function agregarItems(lista, ...items) {
-
-  // Devuelvo nueva lista sin modificar original
-  return [...lista, ...items];
-}
-
-export function obtenerInfo(item) {
+export function configFinal(...configs) {
   try {
 
-    // Destructuración
-    const { id, nombre, precio } = item;
+    configs.forEach(config => {
+      if (typeof config !== "object" || config === null || Array.isArray(config)) {
+        throw new Error("Configuración inválida");
+      }
+    });
 
-    // Validación
-    if (!id || !nombre || typeof precio !== "number") {
-      throw new Error("El ítem no es válido");
-    }
+    const resultado = configs.reduce((acc, config) => ({
+      ...acc,
+      ...config
+    }), {});
 
-    return `ID: ${id}, Nombre: ${nombre}, Precio: ${precio}`;
+    return {
+      ...resultado,
+      validacion: true
+    };
 
   } catch (error) {
-    return error.message;
+    return {
+      validacion: false,
+      mensaje: error.message
+    };
   }
 }

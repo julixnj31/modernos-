@@ -1,10 +1,9 @@
-export function agregarProducto(lista, nuevoProducto) {
+export function agregarInventario(lista, nuevoItem) {
 
-  // Uso spread para no modificar la lista original
-  const nuevaLista = [...lista, nuevoProducto];
+  // Creo nueva lista (inmutable)
+  const nuevaLista = [...lista, nuevoItem];
 
-  console.log("Original:", lista);
-  console.log("Nueva:", nuevaLista);
+  console.log(`Ahora hay ${nuevaLista.length} items en el inventario`);
 
   return nuevaLista;
 }

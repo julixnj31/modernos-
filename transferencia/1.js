@@ -1,8 +1,13 @@
-export function registrarUsuarios(usuarioPrincipal, ...usuariosExtras) {
+export function procesarPedido(pedido, ...extras) {
 
-  // Destructuro para sacar nombre y edad
-  const { nombre, edad } = usuarioPrincipal;
+  // Destructuración del objeto
+  const { cliente, producto, cantidad } = pedido;
 
-  // Retorno mensaje con cantidad de extras
-  return `Usuario principal: ${nombre}, Edad: ${edad} — Usuarios adicionales registrados: ${usuariosExtras.length}`;
+  // Retorno objeto final con extras
+  return {
+    cliente,
+    producto,
+    cantidad,
+    extras
+  };
 }

@@ -1,63 +1,52 @@
-import { registrarUsuarios } from "./apropiacion/1.js";
-import { agregarProducto } from "./apropiacion/2.js";
-import { mostrarDireccion } from "./apropiacion/3.js";
-import { actualizarNotas } from "./apropiacion/4.js";
-import { agregarItems, obtenerInfo } from "./apropiacion/5.js";
+import { procesarPedido } from "./transferencia/1.js";
+import { agregarInventario } from "./transferencia/2.js";
+import { registrarActividad } from "./transferencia/3.js";
+import { configurarUsuario } from "./transferencia/4.js";
+import { configFinal } from "./transferencia/5.js";
 
 let opcion;
 
 do {
   opcion = prompt(
-    "Seleccione ejercicio:\n1. Usuarios\n2. Productos\n3. Dirección\n4. Notas\n5. Inventario"
+    "TRANSFERENCIA:\n1. Pedido\n2. Inventario\n3. Actividad\n4. Configuración\n5. Config avanzada"
   );
 
   switch (opcion) {
+
     case "1":
       console.log(
-        registrarUsuarios(
-          { nombre: "Ana", edad: 28 },
-          { nombre: "Luis", edad: 30 },
-          { nombre: "Carlos", edad: 22 }
+        procesarPedido(
+          { cliente: "Juan", producto: "Laptop", cantidad: 1 },
+          "Garantía", "Envío rápido"
         )
       );
       break;
 
     case "2":
-      const productos = ["teclado", "mouse", "pantalla"];
-      agregarProducto(productos, "audífonos");
+      const inventario = ["cámara", "trípode", "micrófono"];
+      console.log(agregarInventario(inventario, "drone"));
       break;
 
     case "3":
       console.log(
-        mostrarDireccion({ ciudad: "Bogotá", pais: "Colombia" })
+        registrarActividad({ nombre: "Reunión", fecha: "2025-01-01" })
       );
       break;
 
     case "4":
-      const estudiante = {
-        nombre: "Laura",
-        notas: [4.0, 3.8]
-      };
-      console.log(actualizarNotas(estudiante, 4.5, 5.0));
+      const defaults = { tema: "claro", idioma: "es" };
+      const personalizadas = { idioma: "en" };
+      console.log(configurarUsuario(defaults, personalizadas));
       break;
 
     case "5":
-      const lista = [
-        { id: 1, nombre: "Laptop", precio: 2000 }
-      ];
-
-      const nuevaLista = agregarItems(
-        lista,
-        { id: 2, nombre: "Mouse", precio: 50 },
-        { id: 3, nombre: "Teclado", precio: 100 }
-      );
-
-      console.log(nuevaLista);
-      console.log(obtenerInfo(nuevaLista[0]));
+      const base = { modo: "producción", lenguaje: "es", nivel: 1 };
+      const extra = { nivel: 2, tema: "oscuro" };
+      console.log(configFinal(base, extra));
       break;
 
     default:
       alert("Opción inválida");
   }
 
-} while (!["1", "2", "3", "4", "5"].includes(opcion));
+} while (!["1","2","3","4","5"].includes(opcion));

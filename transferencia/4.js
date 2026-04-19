@@ -1,13 +1,10 @@
-export function actualizarNotas(estudiante, ...nuevasNotas) {
+export function configurarUsuario(defaults, personalizadas) {
 
-  // Combino notas sin modificar el original
-  const nuevas = [...estudiante.notas, ...nuevasNotas];
+  // Combino sin mutar
+  const config = { ...defaults, ...personalizadas };
 
-  // Creo nuevo objeto (inmutable)
-  const actualizado = {
-    ...estudiante,
-    notas: nuevas
-  };
+  // Destructuración
+  const { idioma } = config;
 
-  return actualizado;
+  return idioma;
 }

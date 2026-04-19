@@ -1,15 +1,13 @@
-export function mostrarDireccion(direccion) {
+export function registrarActividad(actividad) {
   try {
 
-    // Destructuración
-    const { ciudad, pais } = direccion;
+    const { nombre, fecha } = actividad;
 
-    // Validación
-    if (!ciudad || !pais) {
-      throw new Error("La información de la dirección no es válida");
+    if (!nombre || !fecha) {
+      throw new Error("La actividad no es válida");
     }
 
-    return `Ciudad: ${ciudad}, País: ${pais}`;
+    return `Actividad registrada: ${nombre} en fecha ${fecha}`;
 
   } catch (error) {
     return error.message;
