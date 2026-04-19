@@ -1,36 +1,63 @@
-import { ejercicio1 } from "./transferencia/1.js";
-import { ejercicio2 } from "./transferencia/2.js";
-import { ejercicio3 } from "./transferencia/3.js";
-import { ejercicio4 } from "./transferencia/4.js";
-import { configFinal } from "./transferencia/5.js";
+import { registrarUsuarios } from "./apropiacion/1.js";
+import { agregarProducto } from "./apropiacion/2.js";
+import { mostrarDireccion } from "./apropiacion/3.js";
+import { actualizarNotas } from "./apropiacion/4.js";
+import { agregarItems, obtenerInfo } from "./apropiacion/5.js";
 
 let opcion;
 
 do {
   opcion = prompt(
-    "Seleccione un ejercicio:\n1\n2\n3\n4\n5"
+    "Seleccione ejercicio:\n1. Usuarios\n2. Productos\n3. Dirección\n4. Notas\n5. Inventario"
   );
 
   switch (opcion) {
     case "1":
-      console.log(ejercicio1());
+      console.log(
+        registrarUsuarios(
+          { nombre: "Ana", edad: 28 },
+          { nombre: "Luis", edad: 30 },
+          { nombre: "Carlos", edad: 22 }
+        )
+      );
       break;
+
     case "2":
-      console.log(ejercicio2());
+      const productos = ["teclado", "mouse", "pantalla"];
+      agregarProducto(productos, "audífonos");
       break;
+
     case "3":
-      console.log(ejercicio3());
+      console.log(
+        mostrarDireccion({ ciudad: "Bogotá", pais: "Colombia" })
+      );
       break;
+
     case "4":
-      console.log(ejercicio4());
+      const estudiante = {
+        nombre: "Laura",
+        notas: [4.0, 3.8]
+      };
+      console.log(actualizarNotas(estudiante, 4.5, 5.0));
       break;
+
     case "5":
-      const baseConfig = { modo: "producción", lenguaje: "es", nivel: 1 };
-      const extraConfig = { nivel: 2, tema: "oscuro" };
-      console.log(configFinal(baseConfig, extraConfig));
+      const lista = [
+        { id: 1, nombre: "Laptop", precio: 2000 }
+      ];
+
+      const nuevaLista = agregarItems(
+        lista,
+        { id: 2, nombre: "Mouse", precio: 50 },
+        { id: 3, nombre: "Teclado", precio: 100 }
+      );
+
+      console.log(nuevaLista);
+      console.log(obtenerInfo(nuevaLista[0]));
       break;
+
     default:
       alert("Opción inválida");
   }
 
-} while (!["1","2","3","4","5"].includes(opcion));
+} while (!["1", "2", "3", "4", "5"].includes(opcion));

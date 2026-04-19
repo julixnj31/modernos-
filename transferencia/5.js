@@ -1,31 +1,23 @@
-function configFinal(...configs) {
+export function agregarItems(lista, ...items) {
+
+  // Devuelvo nueva lista sin modificar original
+  return [...lista, ...items];
+}
+
+export function obtenerInfo(item) {
   try {
-    // 🔹 Validar que todos sean objetos
-    configs.forEach(config => {
-      if (
-        typeof config !== "object" ||
-        config === null ||
-        Array.isArray(config)
-      ) {
-        throw new Error("Todos los parámetros deben ser objetos válidos");
-      }
-    });
 
-    // 🔹 Combinar configuraciones (inmutable)
-    const configuracionFinal = configs.reduce((acc, config) => {
-      return { ...acc, ...config };
-    }, {});
+    // Destructuración
+    const { id, nombre, precio } = item;
 
-    // 🔹 Retornar resultado con validación exitosa
-    return {
-      ...configuracionFinal,
-      validacion: true
-    };
+    // Validación
+    if (!id || !nombre || typeof precio !== "number") {
+      throw new Error("El ítem no es válido");
+    }
+
+    return `ID: ${id}, Nombre: ${nombre}, Precio: ${precio}`;
 
   } catch (error) {
-    return {
-      validacion: false,
-      mensaje: error.message
-    };
+    return error.message;
   }
 }
