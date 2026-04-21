@@ -1,4 +1,4 @@
-# PROYECTO BASE: [Nombre de la Aplicación] - Software Factory SENA
+# PROYECTO BASE: 7.  Operadores Modernos en JavaScript: El Poder de Transformar Datos - Software Factory SENA
 
 **Metodología:** *"Del Requerimiento al Producto"*
 
